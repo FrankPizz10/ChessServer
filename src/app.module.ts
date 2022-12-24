@@ -4,13 +4,14 @@ import { AppService } from './app.service';
 import { ProductsModule } from './Products/products.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GatewayModule } from './Gateway/gateway.module';
+import { PlayersModule } from './ChessApp/Players/players.module';
 
 const dotenv = require('dotenv');
 dotenv.config();
-const root = `mongodb+srv://Frank_Pizz10:${process.env.MONGOOSEDB_PASSWORD}@chessapp.gxs4wqp.mongodb.net/nestjs-products?retryWrites=true&w=majority`;
+const root = process.env.MONGODB_URL;
 
 @Module({
-  imports: [ProductsModule, MongooseModule.forRoot(root), GatewayModule],
+  imports: [MongooseModule.forRoot(root), ProductsModule, GatewayModule, PlayersModule],
   controllers: [AppController],
   providers: [AppService],
 })

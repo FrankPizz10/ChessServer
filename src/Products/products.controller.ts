@@ -1,5 +1,4 @@
 import { Body, Param, Controller, Get, Post, Patch, Delete } from "@nestjs/common";
-import { stringify } from "querystring";
 import { ProductsService } from "./products.service";
 
 @Controller('products')
